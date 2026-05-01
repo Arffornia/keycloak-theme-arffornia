@@ -30,7 +30,7 @@ import { FiHome } from "react-icons/fi";
 import { useI18n } from "../../i18n";
 import { useKcContext } from "../../KcContext";
 import { Languages } from '../ui/Langauges';
-import companylogo from "./../../assets/img/3istor_blason.png";
+import companylogo from "./../../assets/img/arffornia_icon.png";
 import shape from "./../../assets/img/shape.svg";
 import { useInitializeTemplate } from "./useInitializeTemplate";
 
