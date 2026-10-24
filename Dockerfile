@@ -1,4 +1,4 @@
-FROM busybox:1.36.1
+FROM busybox:1.38.0
 
 WORKDIR /theme
 
