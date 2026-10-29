@@ -1,0 +1,19 @@
+name: Bug report
+description: Something in the login theme is broken
+labels: ["type: bug", "area: infra"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: Page (login, register, OTP...), what you expected, what you got.
+    validations:
+      required: true
+  - type: textarea
+    id: env
+    attributes:
+      label: Browser and Keycloak version
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or console errors
