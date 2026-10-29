@@ -6,6 +6,11 @@ on:
       - main
     tags:
       - "v*"
+  # Build-only check (no login, no push) when the image build itself changes.
+  pull_request:
+    paths:
+      - Dockerfile
+      - .github/workflows/publish-theme.yml
 
 env:
   REGISTRY: ghcr.io
@@ -35,6 +40,7 @@ jobs:
         run: npm run build-keycloak-theme
 
       - name: Log in to the Container registry
+        if: github.event_name != 'pull_request'
         uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
@@ -51,10 +57,16 @@ jobs:
             type=semver,pattern={{version}}
             type=sha
 
+      # Multi-platform builds need a BuildKit builder. The image only copies the theme JAR into
+      # busybox (no RUN step), so arm64 needs no QEMU emulation.
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v7
         with:
           context: .
-          push: true
+          platforms: linux/amd64,linux/arm64
+          push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
