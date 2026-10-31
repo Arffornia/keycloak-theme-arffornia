@@ -10,6 +10,11 @@ export default defineConfig({
         react(),
         tailwindcss(),
         keycloakify({
+            // "arffornia" is the theme name the realm should use.
+            // "keycloak-theme-kube-lab" is the legacy name, still set as `login_theme` in
+            // infra/terraform/main.tf. It ships in the same JAR so the login page keeps working
+            // until infra switches to "arffornia". Remove it after that change is deployed (#18).
+            themeName: ["arffornia", "keycloak-theme-kube-lab"],
             accountThemeImplementation: "none"
         })
     ],
