@@ -18,25 +18,25 @@ const { I18nProvider, useI18n } = i18nBuilder
     .withCustomTranslations({
         en: {
             welcomeMessage:
-                "Welcome to 3-Istor Cloud Platform Authentication - Where your work becomes simple, organized, and secure.",
-            loginAccountTitle: "Login to your account",
+                "Welcome to Arffornia ID. One sign-in for every Arffornia service.",
+            loginAccountTitle: "Sign in to your account",
             registerTitle: "Register a new account",
             email: "Email",
             noAccount: "Don't have an account?",
             doRegister: "Sign up",
-            "organization.selectTitle": "Choose Your Organization",
+            "organization.selectTitle": "Choose your organization",
             "organization.pickPlaceholder": "Pick an organization to continue",
             "identity-provider-login-last-used": "Last used"
         },
         fr: {
             welcomeMessage:
-                "Bienvenue sur la plateforme d'authentification 3-Istor Cloud : là où votre travail devient simple, organisé et sécurisé.",
+                "Bienvenue sur Arffornia ID. Une seule connexion pour tous les services Arffornia.",
             loginAccountTitle: "Connectez-vous à votre compte",
-            registerTitle: "Créer    un nouveau compte",
+            registerTitle: "Créer un nouveau compte",
             email: "E-mail",
             doRegister: "S'inscrire",
-            noAccount: "Vous n'avez pas de compte?",
-            "organization.selectTitle": "Choisissez Votre Organisation",
+            noAccount: "Vous n'avez pas de compte ?",
+            "organization.selectTitle": "Choisissez votre organisation",
             "organization.pickPlaceholder":
                 "Sélectionnez une organisation pour continuer",
             "identity-provider-login-last-used": "Dernière utilisation"
