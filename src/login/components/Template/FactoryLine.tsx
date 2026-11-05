@@ -37,12 +37,12 @@ export function FactoryLine() {
     return (
         <div className="relative h-full overflow-hidden" style={{ background: "var(--arf-panel)" }}>
             {prefersReducedMotion ? (
-                <img src={poster} alt="" className="absolute inset-0 h-full w-full object-cover" />
+                <img src={poster} alt="" className="absolute inset-0 h-full w-full object-cover object-top" />
             ) : (
                 <video
                     // A new element per look, so switching theme restarts on the right file.
                     key={loop}
-                    className="absolute inset-0 h-full w-full object-cover"
+                    className="absolute inset-0 h-full w-full object-cover object-top"
                     src={loop}
                     poster={poster}
                     autoPlay
