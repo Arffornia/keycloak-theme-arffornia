@@ -11,7 +11,7 @@ export default defineConfig({
         tailwindcss(),
         keycloakify({
             themeName: "arffornia",
-            accountThemeImplementation: "none"
+            accountThemeImplementation: "Single-Page"
         })
     ],
     resolve: {
