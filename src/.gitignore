@@ -4,6 +4,8 @@
 # login/i18n.ts
 # login/assets/img/auth-logo.svg
 # login/components/Template/Template.tsx
+# login/components/ui/ThemeProvider.tsx
+# login/components/ui/ThemeToggle.tsx
 # login/components/WebAuthnConditionalUi/useLogic.tsx
 # === Owned files end =====
 
@@ -40,8 +42,6 @@
 /login/components/Template/useAuthChecker.ts
 /login/components/Template/useInitializeTemplate.ts
 /login/components/ui/Langauges.tsx
-/login/components/ui/ThemeProvider.tsx
-/login/components/ui/ThemeToggle.tsx
 /login/components/UserProfileFormFields/AddRemoveButtonsMultiValuedAttribute.tsx
 /login/components/UserProfileFormFields/DO_MAKE_USER_CONFIRM_PASSWORD.ts
 /login/components/UserProfileFormFields/FieldErrors.tsx

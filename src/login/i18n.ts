@@ -26,7 +26,11 @@ const { I18nProvider, useI18n } = i18nBuilder
             doRegister: "Sign up",
             "organization.selectTitle": "Choose your organization",
             "organization.pickPlaceholder": "Pick an organization to continue",
-            "identity-provider-login-last-used": "Last used"
+            "identity-provider-login-last-used": "Last used",
+            themeLabel: "Color theme",
+            themeSystem: "System",
+            themeLight: "Light",
+            themeDark: "Dark"
         },
         fr: {
             welcomeMessage:
@@ -39,7 +43,11 @@ const { I18nProvider, useI18n } = i18nBuilder
             "organization.selectTitle": "Choisissez votre organisation",
             "organization.pickPlaceholder":
                 "Sélectionnez une organisation pour continuer",
-            "identity-provider-login-last-used": "Dernière utilisation"
+            "identity-provider-login-last-used": "Dernière utilisation",
+            themeLabel: "Thème de couleur",
+            themeSystem: "Système",
+            themeLight: "Clair",
+            themeDark: "Sombre"
         }
     })
     .build();
