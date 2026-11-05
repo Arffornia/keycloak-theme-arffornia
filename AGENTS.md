@@ -41,7 +41,7 @@ npm run dev    # dev server with mock context
 
 - No secrets in the repo.
 - Never merge, tag, or push to `main`.
-- The theme name is referenced by infra (`login_theme` in `infra/terraform/main.tf`): renaming it must ship
+- The theme name `arffornia` is referenced by infra (`login_theme` in `infra/terraform/main.tf`): renaming it must ship
   with the infra change (decision in #18).
 
 ## Testing strategy
