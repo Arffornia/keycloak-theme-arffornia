@@ -15,13 +15,17 @@ export const THEME_STORAGE_KEY = "arffornia-theme";
 
 const darkQuery = "(prefers-color-scheme: dark)";
 
+export type ResolvedTheme = "dark" | "light";
+
 type ThemeProviderState = {
     theme: Theme;
+    resolvedTheme: ResolvedTheme;
     setTheme: (theme: Theme) => void;
 };
 
 const ThemeProviderContext = createContext<ThemeProviderState>({
     theme: "system",
+    resolvedTheme: "light",
     setTheme: () => null
 });
 
@@ -34,9 +38,14 @@ function readStoredTheme(): Theme | undefined {
     }
 }
 
-function applyTheme(theme: Theme) {
-    const resolved =
-        theme === "system" ? (window.matchMedia(darkQuery).matches ? "dark" : "light") : theme;
+function resolveTheme(theme: Theme): ResolvedTheme {
+    if (theme !== "system") {
+        return theme;
+    }
+    return window.matchMedia(darkQuery).matches ? "dark" : "light";
+}
+
+function applyTheme(resolved: ResolvedTheme) {
     const root = document.documentElement;
     root.classList.remove("light", "dark");
     root.classList.add(resolved);
@@ -53,15 +62,22 @@ export function ThemeProvider(props: { children: React.ReactNode; defaultTheme?:
         isLockedToLight ? "light" : (readStoredTheme() ?? defaultTheme)
     );
 
+    const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>(() => resolveTheme(theme));
+
     useEffect(() => {
-        applyTheme(theme);
+        const sync = () => {
+            const resolved = resolveTheme(theme);
+            applyTheme(resolved);
+            setResolvedTheme(resolved);
+        };
+        sync();
 
         if (theme !== "system") {
             return;
         }
 
         const media = window.matchMedia(darkQuery);
-        const onChange = () => applyTheme("system");
+        const onChange = sync;
         media.addEventListener("change", onChange);
         return () => media.removeEventListener("change", onChange);
     }, [theme]);
@@ -76,7 +92,7 @@ export function ThemeProvider(props: { children: React.ReactNode; defaultTheme?:
     };
 
     return (
-        <ThemeProviderContext.Provider value={{ theme, setTheme }}>
+        <ThemeProviderContext.Provider value={{ theme, resolvedTheme, setTheme }}>
             {children}
         </ThemeProviderContext.Provider>
     );

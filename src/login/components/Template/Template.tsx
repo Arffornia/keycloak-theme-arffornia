@@ -30,11 +30,12 @@ import { FiHome } from "react-icons/fi";
 import { useI18n } from "../../i18n";
 import { useKcContext } from "../../KcContext";
 import { Languages } from '../ui/Langauges';
-import companylogo from "./../../assets/img/arffornia_icon.png";
-import shape from "./../../assets/img/shape.svg";
+import "../../arffornia.css";
+import craftingTable from "../../assets/da/crafting-table.png";
+import { FactoryLine } from "./FactoryLine";
+import { StatusLight } from "./StatusLight";
 import { useInitializeTemplate } from "./useInitializeTemplate";
 
-const APP_NAME = "Arffornia ID";
 
 export function Template(props: {
     displayInfo?: boolean;
@@ -107,15 +108,16 @@ export function Template(props: {
                 <div className="flex flex-1 items-start lg:items-center justify-center flex-col ">
                     <div className="w-full max-w-xl">
 
-                        <Card className="shadow-none bg-transparent lg:bg-card border-0 lg:rounded-lg lg:border lg:shadow-sm rounded-t-2xl">
+                        <Card className="relative overflow-hidden shadow-none bg-transparent lg:bg-card border-0 lg:rounded-lg lg:border lg:shadow-sm rounded-t-2xl">
+                            <StatusLight />
                             <CardHeader>
                                 <CardTitle>
                                     {/* Mobile header with logo */}
                                     <div className="lg:hidden relative mt-8">
                                         <div className="flex flex-col items-center justify-center gap-3">
                                             <div className="mb-4 flex items-center gap-3">
-                                                <img src={companylogo} alt="Arffornia" />
-                                                <span className="text-xl"> {APP_NAME}</span>
+                                                <img src={craftingTable} alt="" className="h-10 w-10" />
+                                                <span className="arf-wordmark text-3xl">Arffornia</span>
                                             </div>
                                         </div>
                                     </div>
@@ -257,26 +259,8 @@ export function Template(props: {
                 </div>
             </div>
 
-            <div className="bg-primary relative hidden lg:block dark:bg-white/5">
-                <div className="flex items-center pt-20 h-full justify-center z-1">
-                    <div className="absolute right-0 top-0 w-full max-w-62.5 xl:max-w-112.5">
-                        <img src={shape} alt="" aria-hidden="true" />
-                    </div>
-                    <div className="absolute bottom-0 left-0 w-full max-w-62.5 rotate-180 xl:max-w-112.5">
-                        <img src={shape} alt="" aria-hidden="true" />
-                    </div>
-
-                    <div className="flex justify-center my-auto flex-col items-center max-w-xs">
-                        <div className="mb-4 flex items-center gap-3">
-                            <img src={companylogo} alt="Arffornia" />
-                            <span className="text-white text-xl"> {APP_NAME}</span>
-                        </div>
-
-                        <p className="text-center  text-gray-400 ">
-                            {msg("welcomeMessage")}
-                        </p>
-                    </div>
-                </div>
+            <div className="relative hidden lg:block">
+                <FactoryLine />
             </div>
         </div>
     );
