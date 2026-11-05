@@ -6,47 +6,6 @@
 # login/components/Template/Template.tsx
 # === Owned files end =====
 
-# === @keycloakify/login-ui-storybook v250004.2.0 ===
-/login/mocks/KcPageStory.tsx
-/login/pages/code/Page.stories.tsx
-/login/pages/delete-account-confirm/Page.stories.tsx
-/login/pages/delete-credential/Page.stories.tsx
-/login/pages/error/Page.stories.tsx
-/login/pages/frontchannel-logout/Page.stories.tsx
-/login/pages/idp-review-user-profile/Page.stories.tsx
-/login/pages/info/Page.stories.tsx
-/login/pages/link-idp-action/Page.stories.tsx
-/login/pages/login/Page.stories.tsx
-/login/pages/login-config-totp/Page.stories.tsx
-/login/pages/login-idp-link-confirm/Page.stories.tsx
-/login/pages/login-idp-link-confirm-override/Page.stories.tsx
-/login/pages/login-idp-link-email/Page.stories.tsx
-/login/pages/login-oauth-grant/Page.stories.tsx
-/login/pages/login-oauth2-device-verify-user-code/Page.stories.tsx
-/login/pages/login-otp/Page.stories.tsx
-/login/pages/login-page-expired/Page.stories.tsx
-/login/pages/login-passkeys-conditional-authenticate/Page.stories.tsx
-/login/pages/login-password/Page.stories.tsx
-/login/pages/login-recovery-authn-code-config/Page.stories.tsx
-/login/pages/login-recovery-authn-code-input/Page.stories.tsx
-/login/pages/login-reset-otp/Page.stories.tsx
-/login/pages/login-reset-password/Page.stories.tsx
-/login/pages/login-update-password/Page.stories.tsx
-/login/pages/login-update-profile/Page.stories.tsx
-/login/pages/login-username/Page.stories.tsx
-/login/pages/login-verify-email/Page.stories.tsx
-/login/pages/login-x509-info/Page.stories.tsx
-/login/pages/logout-confirm/Page.stories.tsx
-/login/pages/register/Page.stories.tsx
-/login/pages/saml-post-form/Page.stories.tsx
-/login/pages/select-authenticator/Page.stories.tsx
-/login/pages/select-organization/Page.stories.tsx
-/login/pages/terms/Page.stories.tsx
-/login/pages/update-email/Page.stories.tsx
-/login/pages/webauthn-authenticate/Page.stories.tsx
-/login/pages/webauthn-error/Page.stories.tsx
-/login/pages/webauthn-register/Page.stories.tsx
-
 # === @oussemasahbeni/keycloakify-login-shadcn v250004.0.18 ===
 /login/index.css
 /login/KcContext.ts
