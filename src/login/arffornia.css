@@ -1,0 +1,151 @@
+/*
+ * Arffornia art direction on top of the shadcn tokens of index.css.
+ * Palette and fonts: Arffornia_Assets (moodboard/README.md, ui/fonts/).
+ * Selectors are one notch more specific than index.css so the order of the two files does not matter.
+ */
+
+@font-face {
+    font-family: "Instrument Sans";
+    font-weight: 400 700;
+    font-display: swap;
+    src: url("./assets/da/fonts/InstrumentSans-variable.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Barlow Condensed";
+    font-weight: 600;
+    font-display: swap;
+    src: url("./assets/da/fonts/BarlowCondensed-600.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Chakra Petch";
+    font-weight: 700;
+    font-display: swap;
+    src: url("./assets/da/fonts/ChakraPetch-700.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Monocraft";
+    font-display: swap;
+    src: url("./assets/da/fonts/Monocraft.woff2") format("woff2");
+}
+
+html:root {
+    --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: "Monocraft", ui-monospace, monospace;
+
+    --arf-orange: #e0703c;
+    --arf-teal: #0f8f86;
+    --arf-warn: #b7791f;
+    --arf-panel: #e6e8e7;
+
+    --background: #f4f6f7;
+    --foreground: #1b232a;
+    --card: #ffffff;
+    --card-foreground: #1b232a;
+    --popover: #ffffff;
+    --popover-foreground: #1b232a;
+    /* Dark text on the brand orange: white on #e0703c fails WCAG AA. */
+    --primary: #e0703c;
+    --primary-foreground: #1b232a;
+    --secondary: #e9edf0;
+    --secondary-foreground: #1b232a;
+    --muted: #e9edf0;
+    --muted-foreground: #55636e;
+    --accent: #e9edf0;
+    --accent-foreground: #1b232a;
+    --border: #d9e0e5;
+    --input: #d9e0e5;
+    --ring: #0f8f86;
+}
+
+html.dark {
+    --arf-teal: #2fd1c1;
+    --arf-warn: #f2b134;
+    --arf-panel: #1c2622;
+
+    --background: #1f2830;
+    --foreground: #e8edf0;
+    --card: #2a3640;
+    --card-foreground: #e8edf0;
+    --popover: #2a3640;
+    --popover-foreground: #e8edf0;
+    --primary: #e0703c;
+    --primary-foreground: #1b232a;
+    --secondary: #33424e;
+    --secondary-foreground: #e8edf0;
+    --muted: #33424e;
+    --muted-foreground: #9fb0bb;
+    --accent: #33424e;
+    --accent-foreground: #e8edf0;
+    --border: rgb(255 255 255 / 0.1);
+    --input: rgb(255 255 255 / 0.15);
+    --ring: #2fd1c1;
+}
+
+html body {
+    font-family: var(--font-sans);
+}
+
+html h1 {
+    font-family: "Barlow Condensed", var(--font-sans);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.arf-wordmark {
+    font-family: "Chakra Petch", var(--font-sans);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+/* Codes the user types or copies: OTP inputs and recovery codes. */
+html [data-input-otp],
+html input[autocomplete="one-time-code"],
+html #kc-recovery-codes-list {
+    font-family: var(--font-mono);
+}
+
+/*
+ * Status light on top of the card, the DA rule "state lights, not decoration":
+ * idle = brand orange, running = teal pulse while a form submits or a passkey is awaited,
+ * error = hazard stripes.
+ */
+.arf-status-light {
+    height: 4px;
+    background: var(--arf-orange);
+    transition: background-color 200ms ease;
+}
+
+.arf-status-light[data-state="running"] {
+    background: var(--arf-teal);
+    animation: arf-pulse 1.2s ease-in-out infinite;
+}
+
+.arf-status-light[data-state="error"] {
+    background: repeating-linear-gradient(
+        -45deg,
+        var(--arf-warn) 0 8px,
+        var(--foreground) 8px 16px
+    );
+    animation: arf-stripes 0.8s linear 2;
+}
+
+@keyframes arf-pulse {
+    50% {
+        opacity: 0.35;
+    }
+}
+
+@keyframes arf-stripes {
+    to {
+        background-position: 22.6px 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .arf-status-light {
+        animation: none !important;
+    }
+}
