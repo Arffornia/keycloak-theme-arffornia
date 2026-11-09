@@ -1,21 +1,23 @@
+@import "../tokens.css";
+
 /*
  * Arffornia art direction on the account console (PatternFly 5).
- * Same palette and fonts as src/login/arffornia.css. Selectors start with `html` so they win over
+ * Same tokens and fonts as src/login/arffornia.css. Selectors start with `html` so they win over
  * PatternFly's :root and .pf-v5-theme-dark rules whatever the load order.
  */
 
 @font-face {
-    font-family: "Instrument Sans";
-    font-weight: 400 700;
+    font-family: "Montserrat";
+    font-weight: 100 900;
     font-display: swap;
-    src: url("../login/assets/da/fonts/InstrumentSans-variable.woff2") format("woff2");
+    src: url("../login/assets/da/fonts/Montserrat-latin.woff2") format("woff2");
 }
 
 @font-face {
-    font-family: "Barlow Condensed";
-    font-weight: 600;
+    font-family: "Chakra Petch";
+    font-weight: 700;
     font-display: swap;
-    src: url("../login/assets/da/fonts/BarlowCondensed-600.woff2") format("woff2");
+    src: url("../login/assets/da/fonts/ChakraPetch-700.woff2") format("woff2");
 }
 
 @font-face {
@@ -24,50 +26,55 @@
     src: url("../login/assets/da/fonts/Monocraft.woff2") format("woff2");
 }
 
+/* tokens.css makes dark the default color-scheme; PatternFly's light mode needs it back. */
 html:root {
-    --pf-v5-global--FontFamily--text: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
-    --pf-v5-global--FontFamily--heading: "Barlow Condensed", "Instrument Sans", sans-serif;
-    --pf-v5-global--FontFamily--monospace: "Monocraft", ui-monospace, monospace;
+    color-scheme: light;
 
-    /* A darker orange than the brand #e0703c: white text on it passes WCAG AA. */
-    --pf-v5-global--primary-color--100: #b8551f;
-    --pf-v5-global--primary-color--200: #96441a;
-    --pf-v5-global--primary-color--dark-100: #96441a;
-    --pf-v5-global--link--Color: #b8551f;
-    --pf-v5-global--link--Color--hover: #96441a;
-    --pf-v5-global--active-color--100: #0f8f86;
+    --pf-v5-global--FontFamily--text: var(--arf-font-body);
+    --pf-v5-global--FontFamily--heading: var(--arf-font-display);
+    --pf-v5-global--FontFamily--monospace: var(--arf-font-mono);
 
-    --pf-v5-global--BackgroundColor--200: #f4f6f7;
-    --pf-v5-c-page--BackgroundColor: #f4f6f7;
-    --pf-v5-c-page__main-section--BackgroundColor: #f4f6f7;
+    /* The deep orange: white text on the brand #ff7300 fails WCAG AA. */
+    --pf-v5-global--primary-color--100: var(--arf-color-brand-orange-deep);
+    --pf-v5-global--primary-color--200: color-mix(in srgb, var(--arf-color-brand-orange-deep) 80%, black);
+    --pf-v5-global--primary-color--dark-100: color-mix(in srgb, var(--arf-color-brand-orange-deep) 80%, black);
+    --pf-v5-global--link--Color: var(--arf-color-brand-orange-deep);
+    --pf-v5-global--link--Color--hover: color-mix(in srgb, var(--arf-color-brand-orange-deep) 80%, black);
+    --pf-v5-global--active-color--100: var(--arf-color-brand-teal-deep);
+
+    --pf-v5-global--BackgroundColor--200: var(--arf-color-plum-50);
+    --pf-v5-c-page--BackgroundColor: var(--arf-color-plum-50);
+    --pf-v5-c-page__main-section--BackgroundColor: var(--arf-color-plum-50);
     /* Current item marker in the side navigation. */
-    --pf-v5-global--active-color--400: #e0703c;
+    --pf-v5-global--active-color--400: var(--arf-color-brand-orange);
 }
 
 html.pf-v5-theme-dark {
-    --pf-v5-global--primary-color--100: #e0703c;
-    --pf-v5-global--primary-color--200: #f08a58;
-    --pf-v5-global--link--Color: #f08a58;
-    --pf-v5-global--link--Color--hover: #f5a47c;
-    --pf-v5-global--active-color--100: #2fd1c1;
+    color-scheme: dark;
 
-    --pf-v5-global--BackgroundColor--100: #2a3640;
-    --pf-v5-global--BackgroundColor--200: #1f2830;
-    --pf-v5-c-page--BackgroundColor: #1f2830;
-    --pf-v5-c-page__main-section--BackgroundColor: #1f2830;
-    --pf-v5-c-page__sidebar--BackgroundColor: #2a3640;
+    --pf-v5-global--primary-color--100: var(--arf-color-brand-orange);
+    --pf-v5-global--primary-color--200: var(--arf-color-brand-orange-strong);
+    --pf-v5-global--link--Color: var(--arf-color-brand-orange);
+    --pf-v5-global--link--Color--hover: color-mix(in srgb, var(--arf-color-brand-orange) 70%, white);
+    --pf-v5-global--active-color--100: var(--arf-color-brand-teal);
+
+    --pf-v5-global--BackgroundColor--100: var(--arf-color-plum-850);
+    --pf-v5-global--BackgroundColor--200: var(--arf-color-plum-950);
+    --pf-v5-c-page--BackgroundColor: var(--arf-color-plum-950);
+    --pf-v5-c-page__main-section--BackgroundColor: var(--arf-color-plum-950);
+    --pf-v5-c-page__sidebar--BackgroundColor: var(--arf-color-plum-850);
 }
 
 /* Dark text on the brand orange in dark mode, as on the login pages. */
 html.pf-v5-theme-dark .pf-v5-c-button.pf-m-primary {
-    --pf-v5-c-button--m-primary--Color: #1b232a;
-    --pf-v5-c-button--m-primary--hover--Color: #1b232a;
+    --pf-v5-c-button--m-primary--Color: var(--arf-color-plum-950);
+    --pf-v5-c-button--m-primary--hover--Color: var(--arf-color-plum-950);
 }
 
 /* Component variables are declared on the component class itself, hence the extra `html`. */
 html .pf-v5-c-masthead {
-    --pf-v5-c-masthead--BackgroundColor: #1b232a;
-    border-bottom: 3px solid #e0703c;
+    --pf-v5-c-masthead--BackgroundColor: var(--arf-color-plum-950);
+    border-bottom: 3px solid var(--arf-color-brand-orange);
 }
 
 html .pf-v5-c-masthead .pf-v5-c-toolbar {

@@ -55,6 +55,7 @@ npm run dev    # dev server with mock context
 - `npm ci` needs `--legacy-peer-deps`.
 - The postinstall (`keycloakify sync-extensions`) rewrites `package.json` (`lucide-react` range) and
   undoes Dependabot bumps. Do not commit that diff (#19).
+- `src/tokens.css` is a copy of `Arffornia_Assets/ui/tokens/dist/tokens.css` (spec 018): never edit it, refresh it with `make tokens`; CI (`make tokens-check`) fails when it drifts from Assets main. Colours and fonts in `arffornia.css` use its `var(--arf-*)` tokens.
 - Building the JAR needs Maven; behind a proxy Maven needs its own `settings.xml`.
 - The publish workflow pushes `latest` on every main push and infra uses `latest` (#20).
 
