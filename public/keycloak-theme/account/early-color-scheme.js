@@ -11,8 +11,8 @@
 
 {
 
-    const BACKGROUND_COLOR_DARK_MODE= "#1f2830";
-    const BACKGROUND_COLOR_LIGHT_MODE = "#f4f6f7";
+    const BACKGROUND_COLOR_DARK_MODE= "#09070a";
+    const BACKGROUND_COLOR_LIGHT_MODE = "#f8f5fc";
     const DARK_THEME_CLASS= "pf-v5-theme-dark";
 
     const isDarkModeEnabled = (() => {
