@@ -1,6 +1,6 @@
 # Thin wrappers over npm scripts. `make check` is what CI runs.
 # npm ci needs --legacy-peer-deps (peer ranges of the shadcn login package).
-.PHONY: install check lint typecheck build theme storybook
+.PHONY: install check lint typecheck build theme storybook tokens tokens-check
 
 install:
 	npm ci --legacy-peer-deps
@@ -23,3 +23,11 @@ theme:
 
 storybook:
 	npm run storybook
+
+TOKENS_URL := https://raw.githubusercontent.com/Arffornia/Arffornia_Assets/main/ui/tokens/dist/tokens.css
+
+tokens:
+	curl -fsSL $(TOKENS_URL) -o src/tokens.css
+
+tokens-check:
+	curl -fsSL $(TOKENS_URL) | diff -u src/tokens.css -

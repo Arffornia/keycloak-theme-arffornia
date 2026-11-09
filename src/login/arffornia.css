@@ -1,21 +1,16 @@
+@import "../tokens.css";
+
 /*
  * Arffornia art direction on top of the shadcn tokens of index.css.
- * Palette and fonts: Arffornia_Assets (moodboard/README.md, ui/fonts/).
+ * Palette and fonts: the generated design tokens (src/tokens.css, copied from Arffornia_Assets ui/tokens).
  * Selectors are one notch more specific than index.css so the order of the two files does not matter.
  */
 
 @font-face {
-    font-family: "Instrument Sans";
-    font-weight: 400 700;
+    font-family: "Montserrat";
+    font-weight: 100 900;
     font-display: swap;
-    src: url("./assets/da/fonts/InstrumentSans-variable.woff2") format("woff2");
-}
-
-@font-face {
-    font-family: "Barlow Condensed";
-    font-weight: 600;
-    font-display: swap;
-    src: url("./assets/da/fonts/BarlowCondensed-600.woff2") format("woff2");
+    src: url("./assets/da/fonts/Montserrat-latin.woff2") format("woff2");
 }
 
 @font-face {
@@ -32,56 +27,55 @@
 }
 
 html:root {
-    --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
-    --font-mono: "Monocraft", ui-monospace, monospace;
+    --font-sans: var(--arf-font-body);
+    --font-mono: var(--arf-font-mono);
 
-    --arf-orange: #e0703c;
-    --arf-teal: #0f8f86;
+    --arf-teal: var(--arf-color-brand-teal-deep);
     --arf-warn: #b7791f;
-    --arf-panel: #e6e8e7;
+    --arf-panel: var(--arf-color-plum-100);
 
-    --background: #f4f6f7;
-    --foreground: #1b232a;
+    --background: var(--arf-color-plum-50);
+    --foreground: var(--arf-color-plum-850);
     --card: #ffffff;
-    --card-foreground: #1b232a;
+    --card-foreground: var(--arf-color-plum-850);
     --popover: #ffffff;
-    --popover-foreground: #1b232a;
-    /* Dark text on the brand orange: white on #e0703c fails WCAG AA. */
-    --primary: #e0703c;
-    --primary-foreground: #1b232a;
-    --secondary: #e9edf0;
-    --secondary-foreground: #1b232a;
-    --muted: #e9edf0;
-    --muted-foreground: #55636e;
-    --accent: #e9edf0;
-    --accent-foreground: #1b232a;
-    --border: #d9e0e5;
-    --input: #d9e0e5;
-    --ring: #0f8f86;
+    --popover-foreground: var(--arf-color-plum-850);
+    /* Dark text on the brand orange: white on #ff7300 fails WCAG AA. */
+    --primary: var(--arf-color-brand-orange);
+    --primary-foreground: var(--arf-color-plum-950);
+    --secondary: var(--arf-color-plum-100);
+    --secondary-foreground: var(--arf-color-plum-850);
+    --muted: var(--arf-color-plum-100);
+    --muted-foreground: var(--arf-color-plum-700);
+    --accent: var(--arf-color-plum-100);
+    --accent-foreground: var(--arf-color-plum-850);
+    --border: var(--arf-color-plum-200);
+    --input: var(--arf-color-plum-200);
+    --ring: var(--arf-color-brand-teal-deep);
 }
 
 html.dark {
-    --arf-teal: #2fd1c1;
-    --arf-warn: #f2b134;
-    --arf-panel: #1c2622;
+    --arf-teal: var(--arf-color-brand-teal);
+    --arf-warn: var(--arf-color-state-warning);
+    --arf-panel: var(--arf-color-plum-900);
 
-    --background: #1f2830;
-    --foreground: #e8edf0;
-    --card: #2a3640;
-    --card-foreground: #e8edf0;
-    --popover: #2a3640;
-    --popover-foreground: #e8edf0;
-    --primary: #e0703c;
-    --primary-foreground: #1b232a;
-    --secondary: #33424e;
-    --secondary-foreground: #e8edf0;
-    --muted: #33424e;
-    --muted-foreground: #9fb0bb;
-    --accent: #33424e;
-    --accent-foreground: #e8edf0;
-    --border: rgb(255 255 255 / 0.1);
-    --input: rgb(255 255 255 / 0.15);
-    --ring: #2fd1c1;
+    --background: var(--arf-color-plum-950);
+    --foreground: var(--arf-color-plum-100);
+    --card: var(--arf-color-plum-850);
+    --card-foreground: var(--arf-color-plum-100);
+    --popover: var(--arf-color-plum-850);
+    --popover-foreground: var(--arf-color-plum-100);
+    --primary: var(--arf-color-brand-orange);
+    --primary-foreground: var(--arf-color-plum-950);
+    --secondary: var(--arf-color-plum-800);
+    --secondary-foreground: var(--arf-color-plum-100);
+    --muted: var(--arf-color-plum-800);
+    --muted-foreground: var(--arf-color-plum-300);
+    --accent: var(--arf-color-plum-800);
+    --accent-foreground: var(--arf-color-plum-100);
+    --border: var(--arf-color-plum-700);
+    --input: var(--arf-color-plum-700);
+    --ring: var(--arf-color-brand-teal);
 }
 
 html body {
@@ -89,13 +83,13 @@ html body {
 }
 
 html h1 {
-    font-family: "Barlow Condensed", var(--font-sans);
-    font-weight: 600;
+    font-family: var(--arf-font-display);
+    font-weight: 700;
     letter-spacing: 0.01em;
 }
 
 .arf-wordmark {
-    font-family: "Chakra Petch", var(--font-sans);
+    font-family: var(--arf-font-display);
     font-weight: 700;
     letter-spacing: -0.02em;
 }
@@ -114,7 +108,7 @@ html #kc-recovery-codes-list {
  */
 .arf-status-light {
     height: 4px;
-    background: var(--arf-orange);
+    background: var(--arf-color-brand-orange);
     transition: background-color 200ms ease;
 }
 
