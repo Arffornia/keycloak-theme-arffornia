@@ -59,4 +59,5 @@ Every push to `main` builds the JAR and pushes `ghcr.io/arffornia/keycloak-theme
 
 ## License
 
-No license file yet (tracked in #21).
+Code: [MIT](LICENSE), © Brian Perret and Arffornia contributors.
+Original art in `src/login/assets/img/`: [CC BY 4.0](LICENSE-ASSETS). `public/favicon.svg` and `public/icons.svg` are Vite template icons, not Arffornia art.
