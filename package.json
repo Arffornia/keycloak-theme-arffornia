@@ -38,7 +38,7 @@
     "tailwind-merge": "^2.6.0",
     "tailwindcss": "^4.2.1",
     "tsafe": "^1.8.5",
-    "@keycloakify/keycloak-account-ui": "260502.0.2",
+    "@keycloakify/keycloak-account-ui": "260700.0.4",
     "@keycloakify/keycloak-ui-shared": "~260502.0.0",
     "@patternfly/patternfly": "^5.4.2",
     "@patternfly/react-core": "^5.4.14",
