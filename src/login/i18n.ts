@@ -3,7 +3,7 @@
  *
  * $ npx keycloakify own --path "login/i18n.ts"
  *
- * This file is provided by @oussemasahbeni/keycloakify-login-shadcn version 250004.0.18.
+ * This file is provided by @oussemasahbeni/keycloakify-login-shadcn version 250004.0.24.
  * It was copied into your repository by the postinstall script: `keycloakify sync-extensions`.
  */
 
@@ -30,7 +30,14 @@ const { I18nProvider, useI18n } = i18nBuilder
             themeLabel: "Color theme",
             themeSystem: "System",
             themeLight: "Light",
-            themeDark: "Dark"
+            themeDark: "Dark",
+            attemptedUsernameLoggingInAs: "Logging in as",
+            usernamePlaceholder: "Enter your username",
+            usernameOrEmailPlaceholder: "Enter your username or email",
+            emailPlaceholder: "Enter your email",
+            passwordPlaceholder: "Enter your password",
+            newPasswordPlaceholder: "Enter your new password",
+            confirmPasswordPlaceholder: "Confirm your password"
         },
         fr: {
             welcomeMessage:
@@ -47,7 +54,14 @@ const { I18nProvider, useI18n } = i18nBuilder
             themeLabel: "Thème de couleur",
             themeSystem: "Système",
             themeLight: "Clair",
-            themeDark: "Sombre"
+            themeDark: "Sombre",
+            attemptedUsernameLoggingInAs: "Connexion en tant que",
+            usernamePlaceholder: "Entrez votre nom d'utilisateur",
+            usernameOrEmailPlaceholder: "Entrez votre nom d'utilisateur ou votre e-mail",
+            emailPlaceholder: "Entrez votre e-mail",
+            passwordPlaceholder: "Entrez votre mot de passe",
+            newPasswordPlaceholder: "Entrez votre nouveau mot de passe",
+            confirmPasswordPlaceholder: "Confirmez votre mot de passe"
         }
     })
     .build();

@@ -11,7 +11,19 @@ export default defineConfig({
         tailwindcss(),
         keycloakify({
             themeName: "arffornia",
-            accountThemeImplementation: "Single-Page"
+            accountThemeImplementation: "Single-Page",
+            environmentVariables: [
+                { name: "SHADCN_THEME_LOGO_WHITE_URL", default: "" },
+                { name: "SHADCN_THEME_LOGO_DARK_URL", default: "" },
+                { name: "SHADCN_THEME_APP_NAME", default: "Arffornia" },
+                { name: "SHADCN_THEME_LAYOUT", default: "two-column" },
+                { name: "SHADCN_THEME_SIDE_IMAGE_URL", default: "" },
+                { name: "SHADCN_THEME_PRESET", default: "neutral" },
+                { name: "SHADCN_THEME_BASE", default: "neutral" },
+                { name: "SHADCN_THEME_RADIUS", default: "default" },
+                { name: "SHADCN_THEME_FONT", default: "geist" },
+                { name: "SHADCN_THEME_PLACEHOLDER", default: "false" }
+            ]
         })
     ],
     resolve: {
